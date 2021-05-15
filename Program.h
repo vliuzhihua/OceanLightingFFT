@@ -11,7 +11,7 @@ public:
 
 	int geometryShader;
 
-	Program(int files, char** fileNames, char* options = NULL);
+	Program(int files, const char** fileNames, char* options = NULL);
 
 	~Program();
 };

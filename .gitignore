@@ -1,0 +1,6 @@
+*.db
+/Debug
+/.fbuild
+/.vs
+/OceanSeamless/x64
+/OceanSeamless/Debug

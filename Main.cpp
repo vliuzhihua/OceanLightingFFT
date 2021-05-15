@@ -282,7 +282,7 @@ void drawClouds(const vec4f &sun, const mat4f &mat)
 
 void loadPrograms(bool all)
 {
-    char* files[2];
+	const char* files[2];
     char options[512];
     files[0] = "atmosphere.glsl";
     files[1] = "ocean.glsl";

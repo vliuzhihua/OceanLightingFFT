@@ -6,7 +6,7 @@
 
 #include "Program.h"
 
-char *textFileRead(char *fn) {
+char *textFileRead(const char *fn) {
     FILE *fp;
     char *content = NULL;
     int count = 0;
@@ -56,7 +56,7 @@ int checkProgram(GLuint p) {
     return linked;
 }
 
-Program::Program(int files, char** fileNames, char *options) {
+Program::Program(int files, const char** fileNames, char *options) {
     program = -1;
     vertexShader = -1;
     fragmentShader = -1;
