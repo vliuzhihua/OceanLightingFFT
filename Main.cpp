@@ -891,34 +891,40 @@ void keyboardFunc(unsigned char c, int x, int y)
 	    return;
 	}
 
-    if (c == 27) {
+    switch (c) {
+    case 27:
         ::exit(0);
-    } else if (c == '+') {
+        break;
+    case 'w':
         cameraTheta = min(cameraTheta + 5.0f, 90.0f - 0.001f);
-    } else if (c == '-') {
+        break;
+    case 's':
         cameraTheta = cameraTheta - 5.0;
+        break;
+    case 'r':
+        loadPrograms(true);
+        computeSlopeVarianceTex(NULL);
+        break;
+    case 'a':
+        cameraPhi -= 5.0;
+        break;
+    case 'd':
+        cameraPhi += 5.0;
+        break;
+    case 'q':
+        cameraHeight = min(8000.0f, cameraHeight * 1.1f);
+        TwRefreshBar(bar);
+        break;
+    case 'e':
+        cameraHeight = max(0.5f, cameraHeight / 1.1f);
+        TwRefreshBar(bar);
+        break;
     }
 
 }
 
 void specialKeyFunc(int c, int x, int y)
 {
-    switch (c) {
-    case GLUT_KEY_LEFT:
-        cameraPhi -= 5.0;
-        break;
-    case GLUT_KEY_RIGHT:
-        cameraPhi += 5.0;
-        break;
-    case GLUT_KEY_PAGE_UP:
-    	cameraHeight = min(8000.0f, cameraHeight * 1.1f);
-    	TwRefreshBar(bar);
-        break;
-    case GLUT_KEY_PAGE_DOWN:
-    	cameraHeight = max(0.5f, cameraHeight / 1.1f);
-    	TwRefreshBar(bar);
-        break;
-    }
 }
 
 int oldx;
